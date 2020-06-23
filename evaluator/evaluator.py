@@ -14,8 +14,8 @@ class Evaluator(object):
 
         yelp_acc_path = 'acc_yelp.bin'
         yelp_ppl_path = 'ppl_yelp.binary'
-        yelp_ref0_path = 'yelp.refs.0'
-        yelp_ref1_path = 'yelp.refs.1'
+        yelp_ref0_path = 'swbd.refs.0'
+        yelp_ref1_path = 'swbd.refs.1'
 
         
         yelp_acc_file = pkg_resources.resource_stream(resource_package, yelp_acc_path)
