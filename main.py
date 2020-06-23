@@ -6,7 +6,7 @@ from train import train, auto_eval
 
 
 class Config():
-    data_path = './data/yelp/'
+    data_path = './data/swbd/'
     log_dir = 'runs/exp'
     save_path = './save'
     pretrained_embed_path = './embedding/'
