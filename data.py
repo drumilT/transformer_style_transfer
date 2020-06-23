@@ -15,9 +15,9 @@ class DatasetIterator(object):
             if batch_pos.text.size(0) == batch_neg.text.size(0):
                 yield batch_pos.text, batch_neg.text
 
-def load_dataset(config, train_pos='train.pos', train_neg='train.neg',
-                 dev_pos='dev.pos', dev_neg='dev.neg',
-                 test_pos='test.pos', test_neg='test.neg'):
+def load_dataset(config, train_pos='train_1.txt', train_neg='train_0.txt',
+                 dev_pos='dev_1.txt', dev_neg='dev_0.txt',
+                 test_pos='test_1.txt', test_neg='test_0.txt'):
 
     root = config.data_path
     TEXT = data.Field(batch_first=True, eos_token='<eos>')
@@ -67,7 +67,7 @@ def load_dataset(config, train_pos='train.pos', train_neg='train.neg',
 
 
 if __name__ == '__main__':
-    train_iter, _, _, vocab = load_dataset('../data/yelp/')
+    train_iter, _, _, vocab = load_dataset('../data/swbd/')
     print(len(vocab))
     for batch in train_iter:
         text = tensor2text(vocab, batch.text)
