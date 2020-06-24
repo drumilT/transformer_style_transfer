@@ -19,7 +19,7 @@ class Evaluator(object):
 
         
         yelp_acc_file = pkg_resources.resource_stream(resource_package, yelp_acc_path)
-        yelp_ppl_file = pkg_resources.resource_stream(resource_package, yelp_ppl_path)
+        #yelp_ppl_file = pkg_resources.resource_stream(resource_package, yelp_ppl_path)
         yelp_ref0_file = pkg_resources.resource_stream(resource_package, yelp_ref0_path)
         yelp_ref1_file = pkg_resources.resource_stream(resource_package, yelp_ref1_path)
 
@@ -30,7 +30,7 @@ class Evaluator(object):
         with open(yelp_ref1_file.name, 'r') as fin:
             self.yelp_ref.append(fin.readlines())
         self.classifier_yelp = fasttext.load_model(yelp_acc_file.name)
-        self.yelp_ppl_model = kenlm.Model(yelp_ppl_file.name)
+        #self.yelp_ppl_model = kenlm.Model(yelp_ppl_file.name)
         
     def yelp_style_check(self, text_transfered, style_origin):
         text_transfered = ' '.join(word_tokenize(text_transfered.lower().strip()))
@@ -103,7 +103,7 @@ class Evaluator(object):
         for i, line in enumerate(texts_transfered):
             words += [word for word in line.split()]
             length += len(line.split())
-            score = self.yelp_ppl_model.score(line)
+            score = 0 #self.yelp_ppl_model.score(line)
             sum += score
         return math.pow(10, -sum / length)
 
