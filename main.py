@@ -27,7 +27,7 @@ class Config():
     L2 = 0
     iter_D = 10
     iter_F = 5
-    F_pretrain_iter = 500
+    F_pretrain_iter = 2500
     log_steps = 5
     eval_steps = 25
     learned_pos_embed = True
