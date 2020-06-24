@@ -70,26 +70,26 @@ class Evaluator(object):
         return sum / n
 
     def yelp_ref_bleu_0(self, texts_neg2pos):
-        assert len(texts_neg2pos) == 500, 'Size of input differs from human reference file(500)!'
+        assert len(texts_neg2pos) == 11889, 'Size of input differs from human reference file( 11889)!'
         sum = 0
-        n = 500
+        n =  11889
         for x, y in zip(self.yelp_ref[0], texts_neg2pos):
             sum += self.nltk_bleu([x], y)
         return sum / n
 
     def yelp_ref_bleu_1(self, texts_pos2neg):
-        assert len(texts_pos2neg) == 500, 'Size of input differs from human reference file(500)!'
+        assert len(texts_pos2neg) ==  11889, 'Size of input differs from human reference file( 11889)!'
         sum = 0
-        n = 500
+        n = 11889
         for x, y in zip(self.yelp_ref[1], texts_pos2neg):
             sum += self.nltk_bleu([x], y)
         return sum / n
 
     def yelp_ref_bleu(self, texts_neg2pos, texts_pos2neg):
-        assert len(texts_neg2pos) == 500, 'Size of input differs from human reference file(500)!'
-        assert len(texts_pos2neg) == 500, 'Size of input differs from human reference file(500)!'
+        assert len(texts_neg2pos) == 11889, 'Size of input differs from human reference file( 11889)!'
+        assert len(texts_pos2neg) ==  11889, 'Size of input differs from human reference file( 11889)!'
         sum = 0
-        n = 1000
+        n =  2*11889
         for x, y in zip(self.yelp_ref[0] + self.yelp_ref[1], texts_neg2pos + texts_pos2neg):
             sum += self.nltk_bleu([x], y)
         return sum / n
